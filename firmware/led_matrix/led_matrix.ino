@@ -15,19 +15,6 @@ void delay_ms(uint16_t ms) {
     }
 }
 
-/* 
- * Pin mapping based on your schematic:
- * ROW0: P3.4
- * ROW1: P3.2
- * ROW2: P1.4
- * ROW3: P1.5
- * ROW4: P1.6
- * ROW5: P1.7
- * ROW6: P3.1
- * ROW7: P3.0
- */
-
-// Set all row/col pins to High-Impedance Input (Tristate)
 void reset_all_pins(void) {
     // Port 1: P1.4, P1.5, P1.6, P1.7 -> Input mode
     P1_MOD_OC &= ~((1<<4) | (1<<5) | (1<<6) | (1<<7));
