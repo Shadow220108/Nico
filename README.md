@@ -10,6 +10,10 @@
 Ultra-compact USB dongle with a 56-LED Charlieplexed visualizer and native CH552 8051 control.
 </h3>
 
+| Spinnyy |
+| --- |
+| ![](https://cdn.hackclub.com/01a049e4-0424-77b2-9a4e-ec41b5f2b51b/nico.gif) |
+
 | Front Render | Back Render | 
 | --- | --- |
 |<img alt="Screenshot 2026-08-28 032631" src="https://github.com/user-attachments/assets/a9ad51e3-f1bb-42f2-9953-69e9bf21c25c" />| <img alt="Screenshot 2026-08-28 032648" src="https://github.com/user-attachments/assets/3b8ca6bc-1a72-4ec7-8127-37b7350d0770" />| 
@@ -48,6 +52,6 @@ to use for any purpose you want!
 |Components |all the components grouped together|1       |      28.75    |https://www.lcsc.com|LCSC     |
 | | | Total | 71.84 | 
 
-LCSC BOM for the components on board is [here](https://github.com/Shadow220108/nico/main/production/bom.csv)
+LCSC BOM for the components on board is [here](https://github.com/Shadow220108/Nico/blob/main/production/bom.csv)
   
 
