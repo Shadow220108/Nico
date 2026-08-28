@@ -1,14 +1,11 @@
 #include <ch554.h>
 
-// Microsecond delay
 void delay_us(uint16_t us) {
     while (us--) {
-        // Simple software delay loop for CH552 @ 16/24MHz
         __asm__("nop\n\tnop\n\tnop\n\tnop\n\tnop\n\t");
     }
 }
 
-// Millisecond delay
 void delay_ms(uint16_t ms) {
     while (ms--) {
         delay_us(1000);
@@ -16,54 +13,51 @@ void delay_ms(uint16_t ms) {
 }
 
 void reset_all_pins(void) {
-    // Port 1: P1.4, P1.5, P1.6, P1.7 -> Input mode
     P1_MOD_OC &= ~((1<<4) | (1<<5) | (1<<6) | (1<<7));
     P1_DIR_PU &= ~((1<<4) | (1<<5) | (1<<6) | (1<<7));
 
-    // Port 3: P3.0, P3.1, P3.2, P3.4 -> Input mode
     P3_MOD_OC &= ~((1<<0) | (1<<1) | (1<<2) | (1<<4));
     P3_DIR_PU &= ~((1<<0) | (1<<1) | (1<<2) | (1<<4));
 }
 
-// Drive a specific pin as Push-Pull High (1) or Low (0)
 void set_pin(uint8_t pin_idx, uint8_t level) {
     switch(pin_idx) {
-        case 0: // P3.4
+        case 0: 
             P3_DIR_PU |= (1<<4);
             P3_MOD_OC &= ~(1<<4);
             if(level) P3 |= (1<<4); else P3 &= ~(1<<4);
             break;
-        case 1: // P3.2
+        case 1: 
             P3_DIR_PU |= (1<<2);
             P3_MOD_OC &= ~(1<<2);
             if(level) P3 |= (1<<2); else P3 &= ~(1<<2);
             break;
-        case 2: // P1.4
+        case 2:
             P1_DIR_PU |= (1<<4);
             P1_MOD_OC &= ~(1<<4);
             if(level) P1 |= (1<<4); else P1 &= ~(1<<4);
             break;
-        case 3: // P1.5
+        case 3: 
             P1_DIR_PU |= (1<<5);
             P1_MOD_OC &= ~(1<<5);
             if(level) P1 |= (1<<5); else P1 &= ~(1<<5);
             break;
-        case 4: // P1.6
+        case 4: 
             P1_DIR_PU |= (1<<6);
             P1_MOD_OC &= ~(1<<6);
             if(level) P1 |= (1<<6); else P1 &= ~(1<<6);
             break;
-        case 5: // P1.7
+        case 5:
             P1_DIR_PU |= (1<<7);
             P1_MOD_OC &= ~(1<<7);
             if(level) P1 |= (1<<7); else P1 &= ~(1<<7);
             break;
-        case 6: // P3.1
+        case 6: 
             P3_DIR_PU |= (1<<1);
             P3_MOD_OC &= ~(1<<1);
             if(level) P3 |= (1<<1); else P3 &= ~(1<<1);
             break;
-        case 7: // P3.0
+        case 7: 
             P3_DIR_PU |= (1<<0);
             P3_MOD_OC &= ~(1<<0);
             if(level) P3 |= (1<<0); else P3 &= ~(1<<0);
